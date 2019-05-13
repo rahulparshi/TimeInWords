@@ -115,10 +115,12 @@
 
       //styling the AM/PM word based on hours
       if (hours >= 12) {
-        PM.style.color = color;
+        if (hours == 23 && minutes > 30) AM.style.color = color;
+        else PM.style.color = color;
         if (hours != 12) hours %= 12;
       } else {
-        AM.style.color = color;
+        if (hours == 11 && minutes > 30) PM.style.color = color;
+        else AM.style.color = color;
         if (hours == 0) hours = 12;
       }
 
